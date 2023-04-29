@@ -2,25 +2,14 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-icd10am = {
-    "A00": "Cholera",
-    "A01": "Typhoid fever",
-    "A02": "Salmonella infections",
-    "B00": "Herpesviral [herpes simplex] infections",
-    # more codes and descriptions here...
-}
+@app.get("/icd")
+def get_icd_codes():
+    return {"icd_codes": ["A00.0", "A00.1", "A00.9"]}
 
-snomedct = {
-    "105590001": "Malignant neoplasm of lung",
-    "105596006": "Malignant neoplasm of colon",
-    "105602007": "Malignant neoplasm of breast",
-    # more codes and descriptions here...
-}
+@app.get("/cpt")
+def get_cpt_codes():
+    return {"cpt_codes": ["10030", "10035", "10040"]}
 
-@app.get("/icd10am/{code}")
-def get_icd10am(code: str):
-    return {"code": code, "description": icd10am.get(code, "Code not found")}
-
-@app.get("/snomedct/{code}")
-def get_snomedct(code: str):
-    return {"code": code, "description": snomedct.get(code, "Code not found")}
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
