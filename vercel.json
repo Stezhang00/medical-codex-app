@@ -1,9 +1,7 @@
 {
-    "builds": [
-      { "src": "main.py", "use": "@now/python" }
-    ],
     "routes": [
       { "src": "/icd", "dest": "main.py" },
       { "src": "/cpt", "dest": "main.py" }
     ]
-  }  
+  }
+  
