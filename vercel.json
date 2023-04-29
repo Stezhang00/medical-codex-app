@@ -1,18 +1,9 @@
 {
     "builds": [
-      {
-        "src": "main.py",
-        "use": "@vercel/python"
-      }
+      { "src": "main.py", "use": "@now/python" }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/main.py"
-      }
-    ],
-    "env": {
-      "UVICORN_PORT": "8080"
-    }
+      { "src": "/(.*)", "dest": "/main.py" }
+    ]
   }
-  
+   
