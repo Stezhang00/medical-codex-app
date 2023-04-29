@@ -8,7 +8,11 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "main.py"
+        "dest": "/main.py"
       }
-    ]
+    ],
+    "env": {
+      "UVICORN_PORT": "8080"
+    }
   }
+  
